@@ -49,12 +49,17 @@
 			<version>1.18.20</version>
 			<scope>provided</scope>
 		</dependency>
-			<!-- https://mvnrepository.com/artifact/log4j/log4j -->
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.17</version>
-			</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.15</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -69,6 +74,42 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.7.1</version>
+				<configuration>
+					<rulesets>
+						<ruleset>rulesets/basic.xml</ruleset>
+						<ruleset>rulesets/braces.xml</ruleset>
+						<ruleset>rulesets/clone.xml</ruleset>
+						<ruleset>rulesets/codesize.xml</ruleset>
+						<ruleset>rulesets/coupling.xml</ruleset>
+						<ruleset>rulesets/design.xml</ruleset>
+						<ruleset>rulesets/finalizers.xml</ruleset>
+						<ruleset>rulesets/imports.xml</ruleset>
+						<ruleset>rulesets/j2ee.xml</ruleset>
+						<ruleset>rulesets/javabeans.xml</ruleset>
+						<ruleset>rulesets/junit.xml</ruleset>
+						<ruleset>rulesets/logging-jakarta-commons.xml</ruleset>
+						<ruleset>rulesets/logging-java.xml</ruleset>
+						<ruleset>rulesets/migrating.xml</ruleset>
+						<ruleset>rulesets/optimizations.xml</ruleset>
+						<ruleset>rulesets/strictexception.xml</ruleset>
+						<ruleset>rulesets/strings.xml</ruleset>
+						<ruleset>rulesets/sunsecure.xml</ruleset>
+						<ruleset>rulesets/unusedcode.xml</ruleset>
+					</rulesets>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>pmd</groupId>
+						<artifactId>pmd</artifactId>
+						<version>4.3</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
 		</plugins>
 	</build>
 
@@ -83,6 +124,34 @@
 						<format>html</format>
 						<format>xml</format>
 					</formats>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.7.1</version>
+				<configuration>
+					<rulesets>
+						<ruleset>rulesets/basic.xml</ruleset>
+						<ruleset>rulesets/braces.xml</ruleset>
+						<ruleset>rulesets/clone.xml</ruleset>
+						<ruleset>rulesets/codesize.xml</ruleset>
+						<ruleset>rulesets/coupling.xml</ruleset>
+						<ruleset>rulesets/design.xml</ruleset>
+						<ruleset>rulesets/finalizers.xml</ruleset>
+						<ruleset>rulesets/imports.xml</ruleset>
+						<ruleset>rulesets/j2ee.xml</ruleset>
+						<ruleset>rulesets/javabeans.xml</ruleset>
+						<ruleset>rulesets/junit.xml</ruleset>
+						<ruleset>rulesets/logging-jakarta-commons.xml</ruleset>
+						<ruleset>rulesets/logging-java.xml</ruleset>
+						<ruleset>rulesets/migrating.xml</ruleset>
+						<ruleset>rulesets/optimizations.xml</ruleset>
+						<ruleset>rulesets/strictexception.xml</ruleset>
+						<ruleset>rulesets/strings.xml</ruleset>
+						<ruleset>rulesets/sunsecure.xml</ruleset>
+						<ruleset>rulesets/unusedcode.xml</ruleset>
+					</rulesets>
 				</configuration>
 			</plugin>
 		</plugins>

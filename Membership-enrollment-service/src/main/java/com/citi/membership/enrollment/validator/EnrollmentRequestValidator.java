@@ -21,7 +21,7 @@ public class EnrollmentRequestValidator {
 	/**
 	 * @param enrollmentRequest
 	 */
-	public void validate(EnrollmentRequest enrollmentRequest) throws EnrollmentRequestValidationException{
+	public void validate(final EnrollmentRequest enrollmentRequest) throws EnrollmentRequestValidationException{
 		
 		//TODO:: Validate the request.If any one of the element is invalid then send exception
 		//Need to handle user defined exception.
@@ -31,7 +31,7 @@ public class EnrollmentRequestValidator {
 			throw new EnrollmentRequestValidationException("ENS001","Invalid requst ");
 		}
 		
-		ClientInfo clientInfo=enrollmentRequest.getClientInfo();
+		final ClientInfo clientInfo=enrollmentRequest.getClientInfo();
 		
 		//client id null or empty scenarios
 		if(clientInfo.getClientId()==null || "".equals(clientInfo.getClientId())) {
@@ -44,7 +44,7 @@ public class EnrollmentRequestValidator {
 			throw new EnrollmentRequestValidationException("ENS003","Invalid channel id");
 		}
 		
-		CustomerInfo customerInfo=enrollmentRequest.getCustomerInfo();
+		final CustomerInfo customerInfo=enrollmentRequest.getCustomerInfo();
 		
 		//Card no null or empty scenarios
 		if(customerInfo.getCardNum()==null || "".equals(customerInfo.getCardNum())) {

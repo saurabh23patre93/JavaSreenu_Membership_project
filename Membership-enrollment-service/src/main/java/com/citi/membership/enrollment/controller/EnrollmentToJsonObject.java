@@ -4,6 +4,8 @@
  */
 package com.citi.membership.enrollment.controller;
 
+import org.apache.log4j.Logger;
+
 import com.citi.membership.enrollment.model.ClientInfo;
 import com.citi.membership.enrollment.model.CustomerInfo;
 import com.citi.membership.enrollment.model.EnrollmentRequest;
@@ -17,20 +19,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Description::
  */
 public class EnrollmentToJsonObject {
-	public static void main(String[] args)  {
+	private static Logger logger=Logger.getLogger(EnrollmentToJsonObject.class);
+	public static void main(final String[] args)  {
 		//1.Create your class object
 		
-		EnrollmentRequest enrollmentRequest=new EnrollmentRequest();
+		final EnrollmentRequest enrollmentRequest=new EnrollmentRequest();
 
 
-		ClientInfo clientInfo=new ClientInfo();
+		final ClientInfo clientInfo=new ClientInfo();
 		clientInfo.setRequestId("web");
 		clientInfo.setChannelId("online");
 		clientInfo.setClientId("safhalfaf");
 		clientInfo.setMessageTs("27-4-21");
 
 		
-		CustomerInfo customerInfo =new CustomerInfo();
+		final CustomerInfo customerInfo =new CustomerInfo();
 		customerInfo.setCardNum("54542455224");
 		customerInfo.setClientId("456");
 		customerInfo.setCvv("55");
@@ -47,7 +50,7 @@ public class EnrollmentToJsonObject {
 		enrollmentRequest.setClientInfo(clientInfo);
 		enrollmentRequest.setCustomerInfo(customerInfo );
 		//2.Create obj to ObjectMapper(C)
-		ObjectMapper om=new ObjectMapper();
+		final ObjectMapper om=new ObjectMapper();
 		
 		//3.Call write__(object):json method
 		String json = null;
@@ -55,7 +58,7 @@ public class EnrollmentToJsonObject {
 			json = om.writeValueAsString(enrollmentRequest);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("not valid ",e);
 		}
 		System.out.println(json);
 	}
@@ -63,3 +66,4 @@ public class EnrollmentToJsonObject {
 
 
 
+ 
